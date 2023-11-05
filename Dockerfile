@@ -4,12 +4,16 @@ FROM node
 # setting up the working direectory in the conatiner for the container to run command
 WORKDIR /app
 
-# COPY the file locallmy to the /app (working directory) in container
-COPY . /app
+# COPY the denpedency description file
+
+COPY package.json /app
 
 # Install the dependency
 # RUN: the command for iamgebuilding to do; this will be executed when image is created
 RUN npm install
+
+# COPY the file locallmy to the /app (working directory) in container
+COPY . /app
 
 #expose the container port
 EXPOSE 80
